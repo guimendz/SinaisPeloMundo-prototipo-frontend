@@ -15,3 +15,8 @@ Tecnologias utilizadas:
 - HTML
 - CSS
 - JavaScript
+
+## Sobre o projeto
+
+Sinais Pelo Mundo é um sistema web desenvolvido como projeto semestral da faculdade, com o objetivo de conectar usuários proporcionando acessibilidade a serviços relacionados a viagens e turismo.
+
