@@ -9,7 +9,7 @@ Minhas contribuições:
 
 A versão final do projeto foi desenvolvida em equipe e encontra-se no repositório oficial:
 
-[https://github.com/guimendz/SinaisPeloMundo-PIM]
+https://github.com/bibichuzz/SinaisPeloMundo
 
 Tecnologias utilizadas:
 - HTML
