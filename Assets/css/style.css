@@ -20,9 +20,9 @@
     --color-border-soft: #b8b5b5d1;
 
     --color-primary: #1B3B88;
-    --color-button-chatbot: #115AA9;
+    --color-button-chatbot: #063390;
     --color-primary-action: #1B6ED6;
-    --color-header-chatbot:#007bff;
+    --color-header-chatbot:#063390;
     --color-primary-hover: #102657;
     --color-primary-light: #E6EDFD;
     --color-primary-hover-light: #bfd7fb;
@@ -600,21 +600,44 @@ button {
         object-fit: cover;
     }
 
-
 .home-header-login {
-    width: 40px;
+    width: auto;
     height: 40px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
+    gap: 10px;
+    font-size: 1.3rem;
     flex-shrink: 0;
     margin-right: 2%;
 }
 
     .home-header-login span {
-        display: none;
-    }
+        display: inline-flex;
+        cursor: pointer;
+}
+
+.home-header-entrar {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.home-header-entrar span {
+    display: none;
+}
+
+.home-header-entrar .entrar-texto {
+    display: none;
+}
+
+.home-header-entrar .material-symbols-outlined {
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.light-mode {
+    color: var(--color-light-mode-icon);
+}
 
 .home-header-navbar {
     width: 100%;
@@ -1735,13 +1758,14 @@ button {
         margin-right: 10px;
     }
 
-    .light-mode {
-        color: var(--color-light-mode-icon);
-    }
-    .home-header-login span {
+    .home-header-entrar span {
         display: inline-flex;
         cursor: pointer;
     }
+
+    .home-header-entrar .entrar-texto {
+    display: inline-flex;
+}
 
     .home-hero-wrapper {
         flex-direction: row;

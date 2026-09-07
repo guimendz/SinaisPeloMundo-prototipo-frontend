@@ -10,29 +10,33 @@
 <body>
 
     <header class="home-header">
-    <div class="home-container home-header-wrapper">
+        <div class="home-container home-header-wrapper">
+            <button class="home-header-menu-toggle" id="tiMenuToggle" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-        <button class="home-header-menu-toggle" id="tiMenuToggle" aria-label="Abrir menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+            <div class="home-header-logo">
+                <img src="Assets/img/Logo-reduzida.jpeg" alt="Logo">
+            </div>
 
-        <div class="home-header-logo">
-            <img src="Assets/img/Logo-reduzida.jpeg" alt="Logo">
-        </div>
+            <div class="home-header-login">
+                <span class="material-symbols-outlined">text_increase</span>
+                <span class="material-symbols-outlined">text_decrease</span>
+                <span class="material-symbols-outlined light-mode">light_mode</span>
+                <a class="home-header-entrar" href="login.html">
+                    <span class="material-symbols-outlined">account_circle</span>
+                    <span class="entrar-texto">Entrar</span>
+                </a>
+            </div>
 
-        <a href="dados-usuario.html" class="home-header-login">
-            <span class="material-symbols-outlined">account_circle</span>
-            <span>Entrar</span>
-        </a>
-
-        <nav class="home-header-navbar" id="tiHeaderNavbar">
-            <ul class="home-header-nav-list">
-                <li><a href="index.html" class="home-header-nav-link">Início</a></li>
-                <li><a href="catalogo.html" class="home-header-nav-link">Catálogo</a></li>
-            </ul>
-        </nav>
+        <nav class="home-header-navbar" id="tiNavbar">
+                <ul class="home-header-nav-list">
+                    <li><a href="index.html" class="home-header-nav-link">Início</a></li>
+                    <li><a href="catalogo.html" class="home-header-nav-link">Catálogo</a></li>
+                </ul>
+            </nav>
     </div>
 </header>
 
@@ -65,6 +69,15 @@
             </section>
         </main>
     </div>
+
+    <script>
+        const tiMenuToggle = document.getElementById("tiMenuToggle");
+        const tiNavbar = document.getElementById("tiNavbar");
+
+        tiMenuToggle.addEventListener("click", () => {
+            tiNavbar.classList.toggle("home-navbar-active");
+        });
+    </script>
 
 </body>
 </html>
