@@ -24,7 +24,7 @@
             <div class="home-header-login">
                 <span class="material-symbols-outlined">text_increase</span>
                 <span class="material-symbols-outlined">text_decrease</span>
-                <span class="material-symbols-outlined light-mode">light_mode</span>
+                <span class="material-symbols-outlined theme-toggle" id="themeToggle">light_mode</span>
                 <a class="home-header-entrar" href="login.html">
                     <span class="material-symbols-outlined">account_circle</span>
                     <span class="entrar-texto">Entrar</span>
@@ -70,14 +70,7 @@
         </main>
     </div>
 
-    <script>
-        const tiMenuToggle = document.getElementById("tiMenuToggle");
-        const tiNavbar = document.getElementById("tiNavbar");
-
-        tiMenuToggle.addEventListener("click", () => {
-            tiNavbar.classList.toggle("home-navbar-active");
-        });
-    </script>
-
+    <script src="Assets/js/menu.js"></script>
+    <script src="Assets/js/theme.js"></script>
 </body>
 </html>
