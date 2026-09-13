@@ -20,13 +20,14 @@
             </button>
 
             <div class="home-header-logo">
-                <img src="#" alt="Logo">
+                <img src="Assets/img/Logo-reduzida.jpeg" alt="Logo">
             </div>
 
-            <a href="dados-usuario.html" class="home-header-login">
-                <span class="material-symbols-outlined">account_circle</span>
-                <span>Entrar</span>
-            </a>
+            <div class="home-header-login">
+                <span class="material-symbols-outlined">text_increase</span>
+                <span class="material-symbols-outlined">text_decrease</span>
+                <span class="material-symbols-outlined theme-toggle" id="themeToggle">light_mode</span>
+            </div>
 
             <nav class="home-header-navbar" id="tiNavbar">
                 <ul class="home-header-nav-list">
@@ -101,7 +102,7 @@
         <div class="home-container home-footer-wrapper">
             <section>
                 <div class="home-footer-logo">
-                    <img src="" alt="Logo">
+                    <img src="Assets/img/Logo.jpg" alt="Logo">
                 </div>
                 <p class="home-footer-text" style="margin-top: 1rem;">
                     Turismo acessível e inclusivo para você viver o melhor do mundo com tranquilidade.
@@ -130,15 +131,7 @@
         </div>
     </footer>
 
-     <script>
-    const tiMenuToggle = document.getElementById("tiMenuToggle");
-    const tiNavbar = document.getElementById("tiNavbar");
-
-    tiMenuToggle.addEventListener("click", () => {
-        tiNavbar.classList.toggle("home-navbar-active");
-    });
-</script>
-
+    <script src="Assets/js/menu.js"></script>
+    <script src="Assets/js/theme.js"></script>
 </body>
-
 </html>

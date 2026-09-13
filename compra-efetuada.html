@@ -18,18 +18,20 @@
             </button>
 
             <div class="home-header-logo">
-                <img src="#" alt="Logo">
+                <img src="Assets/img/Logo-reduzida.jpeg" alt="Logo">
             </div>
 
-            <a href="dados-usuario.html" class="home-header-login">
-                <span class="material-symbols-outlined">account_circle</span>
-                <span>Entrar</span>
-            </a>
+            <div class="home-header-login">
+                <span class="material-symbols-outlined">text_increase</span>
+                <span class="material-symbols-outlined">text_decrease</span>
+                <span class="material-symbols-outlined theme-toggle" id="themeToggle">light_mode</span>
+                
+            </div>
 
-            <nav class="home-header-navbar" id="tiHeaderNavbar">
+            <nav class="home-header-navbar" id="tiNavbar">
                 <ul class="home-header-nav-list">
                     <li><a href="index.html" class="home-header-nav-link">Início</a></li>
-                    <li><a href="#" class="home-header-nav-link">Catálogo</a></li>
+                    <li><a href="catalogo.html" class="home-header-nav-link">Catálogo</a></li>
                 </ul>
             </nav>
         </div>
@@ -116,17 +118,8 @@
         </div>
     </footer>
 
-    <script>
-
-    const tiMenuToggle = document.getElementById("tiMenuToggle");
-    const tiHeaderNavbar = document.getElementById("tiHeaderNavbar");
-
-    tiMenuToggle.addEventListener("click", () => {
-    tiHeaderNavbar.classList.toggle("home-navbar-active");
-});
-
-    </script>
-
+    <script src="Assets/js/theme.js"></script>
+    <script src="Assets/js/menu.js"></script>
 </body>
 </html>
     
