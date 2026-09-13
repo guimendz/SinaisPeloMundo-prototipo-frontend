@@ -27,6 +27,14 @@ html[data-theme="dark"] {
     --color-icon-background: #22345c;
     --color-surface-alt: #030E26;
     --color-packages-grid: #030E26;
+
+.logo-light {
+    display: none;
+}
+
+.logo-dark {
+    display: block;
+}
 }
 
 :root {
@@ -123,6 +131,10 @@ ul {
 
 button {
     border: none;
+}
+
+.logo-dark {
+    display: none;
 }
 
 /* Tela de cadastro */
