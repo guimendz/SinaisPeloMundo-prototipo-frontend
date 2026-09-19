@@ -14,13 +14,11 @@ html[data-theme="dark"] {
     --color-text-muted: #999999;
     --color-text-dark: #e0e0e0;
     --color-btn-historico: #272626;
-
     --color-border: #333333;
     --color-border-light: #2a2a2a;
     --color-border-input: #444444;
     --color-border-strong: #555555;
     --color-chat-input: #353434;
-
     --color-primary: #6d93e0;
     --color-primary-light: #22345c;
     --color-primary-hover-light: #2c4372;
@@ -28,13 +26,13 @@ html[data-theme="dark"] {
     --color-surface-alt: #030E26;
     --color-packages-grid: #030E26;
 
-.logo-light {
-    display: none;
-}
+    .logo-light {
+        display: none;
+    }
 
-.logo-dark {
-    display: block;
-}
+    .logo-dark {
+        display: block;
+    }
 }
 
 :root {
@@ -51,50 +49,42 @@ html[data-theme="dark"] {
     --color-muted-surface: #f0f0f0;
     --color-input: #ffffff;
     --color-image-placeholder: #dddddd;
-
     --color-text: #000000;
     --color-text-secondary: #666666;
     --color-text-muted: #555555;
     --color-text-dark: #333333;
     --color-text-on-primary: #ffffff;
-
     --color-border: #e5e5e5;
     --color-border-light: #eeeeee;
     --color-border-input: #cccccc;
     --color-border-strong: #333333;
     --color-border-soft: #b8b5b5d1;
     --color-border-black: #000000;
-
     --color-primary: #1B3B88;
     --color-footer: #1B3B88;
     --color-chat-messages: #1B3B88;
     --color-button-chatbot: #063390;
     --color-primary-action: #1B6ED6;
-    --color-header-chatbot:#063390;
+    --color-header-chatbot: #063390;
     --color-primary-hover: #102657;
     --color-primary-light: #E6EDFD;
     --color-primary-hover-light: #bfd7fb;
     --color-primary-accent: #5985DC;
     --color-icon-background: #eff5ff;
-
     --color-success: #2DC75C;
     --color-success-dark: #209543;
     --color-success-text: #0b8d34;
     --color-success-light: #e8f5e9;
     --color-success-icon: #4caf50;
     --color-success-alt: #4de068;
-
     --color-danger: #ff0000;
     --color-danger-dark: #af0a0a;
     --color-danger-text: #bd0a0a;
     --color-danger-alt: #cc0000;
-
     --color-theme-mode-icon: #f9d10b;
-
     --color-disabled-bg: #d9d9d9;
     --color-disabled-text: #666666;
     --color-disabled-border: #b5b5b5;
-
     --color-black: #000000;
     --color-white: #ffffff;
     --color-transparent: transparent;
@@ -258,9 +248,9 @@ button {
     font-size: 15px;
 }
 
-#esqueci-senha:hover {
-    color: var(--color-link-hover);
-}
+    #esqueci-senha:hover {
+        color: var(--color-link-hover);
+    }
 
 #tela-login {
     min-height: 90vh;
@@ -398,10 +388,10 @@ button {
     border-color: var(--color-primary);
 }
 
-.btn-azul:hover {
-    background-color: var(--color-primary);
-    border-color: var(--color-primary-accent);
-}
+    .btn-azul:hover {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary-accent);
+    }
 
 #botao-excluir {
     border-color: var(--color-danger);
@@ -589,7 +579,7 @@ button {
 
 /* Tela Home page */
 
-.home-benefits-icon{
+.home-benefits-icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -674,7 +664,7 @@ button {
     .home-header-login span {
         display: inline-flex;
         cursor: pointer;
-}
+    }
 
 .home-header-entrar {
     display: flex;
@@ -682,18 +672,18 @@ button {
     gap: 4px;
 }
 
-.home-header-entrar span {
-    display: none;
-}
+    .home-header-entrar span {
+        display: none;
+    }
 
-.home-header-entrar .entrar-texto {
-    display: none;
-}
+    .home-header-entrar .entrar-texto {
+        display: none;
+    }
 
-.home-header-entrar .material-symbols-outlined {
-    display: inline-flex;
-    cursor: pointer;
-}
+    .home-header-entrar .material-symbols-outlined {
+        display: inline-flex;
+        cursor: pointer;
+    }
 
 .theme-toggle {
     color: var(--color-theme-mode-icon);
@@ -750,13 +740,13 @@ button {
     width: 100%;
 }
 
-.home-hero-content h1 {
-    color: var(--color-text);
-}
+    .home-hero-content h1 {
+        color: var(--color-text);
+    }
 
-.home-hero-content p {
-    color: var(--color-text);
-}
+    .home-hero-content p {
+        color: var(--color-text);
+    }
 
 .home-hero-title {
     font-size: 2rem;
@@ -841,7 +831,7 @@ button {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    background-color: var(--color-packages-grid);
+    background-color: transparent;
 }
 
 .home-package-card {
@@ -967,24 +957,28 @@ button {
     overflow: hidden;
 }
 
-.chat-container.chat-active {
-    display: flex;
+    .chat-container.chat-active {
+        display: flex;
+    }
+
+.chat-botao {
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+    background: transparent;
+    z-index: 9998;
 }
 
 .chat-botao img {
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
     width: 80px;
     height: 80px;
     font-size: 24px;
     cursor: pointer;
-    z-index: 10000;
     border-radius: 50%;
 }
 
 .chat-header {
-    flex-shrink: 0; 
+    flex-shrink: 0;
     display: flex;
     justify-content: space-between;
     background-color: var(--color-header-chatbot);
@@ -994,15 +988,15 @@ button {
     font-weight: bold;
 }
 
-.chat-header img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
+    .chat-header img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
 
-.chat-header p {
-    margin-top: 7px;
-}
+    .chat-header p {
+        margin-top: 7px;
+    }
 
 .icon-header-chat {
     margin-top: 15px;
@@ -1013,7 +1007,7 @@ button {
 
 .chat-messages-wrapper {
     flex: 1;
-    min-height: 0; 
+    min-height: 0;
     overflow-y: auto;
     padding: 15px;
     font-family: sans-serif;
@@ -1054,49 +1048,49 @@ button {
 }
 
 .send-message {
-    flex-shrink: 0; 
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     gap: 8px;
     padding: 10px 15px;
-    border-top: 1px solid var(--color-surface); 
+    border-top: 1px solid var(--color-surface);
 }
 
-.send-message form {
-    display: flex;
-}
+    .send-message form {
+        display: flex;
+    }
 
-.send-message input {
-    width: 100%;
-    padding: 10px 16px;
-    border: 1px solid var(--color-border);
-    background-color: var(--color-chat-input);
-    border-radius: 999px;
-    outline: none;
-    font-size: 14px;
-}
+    .send-message input {
+        width: 100%;
+        padding: 10px 16px;
+        border: 1px solid var(--color-border);
+        background-color: var(--color-chat-input);
+        border-radius: 999px;
+        outline: none;
+        font-size: 14px;
+    }
 
 .send-button {
-    background: none; 
-    border: none;      
-    padding: 0;         
+    background: none;
+    border: none;
+    padding: 0;
     cursor: pointer;
-    display: flex;         
+    display: flex;
 }
 
-.send-button span {
-    background-color: var(--color-button-chatbot);
-    color: var(--color-chat-send);
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    line-height: 1;
-    cursor: pointer;
-}
+    .send-button span {
+        background-color: var(--color-button-chatbot);
+        color: var(--color-chat-send);
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        line-height: 1;
+        cursor: pointer;
+    }
 
 /* Tela de confirmação de compra */
 
@@ -1117,7 +1111,6 @@ button {
     border-color: var(--color-border-soft);
     padding: 15px;
     border-radius: 15px;
-    height: 100%;
     min-height: 70vh;
 }
 
@@ -1139,14 +1132,14 @@ button {
         aspect-ratio: 1/1;
     }
 
-    .conteudo-compra {
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-        height: 100%;
-        text-align: center;
-    }
+.conteudo-compra {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
 
     .conteudo-compra form button {
         background-color: var(--color-transparent);
@@ -1200,10 +1193,10 @@ button {
     font-size: 14px;
 }
 
-.text-group strong {
-    color: var(--color-text-dark);
-    font-size: 13px;
-}
+    .text-group strong {
+        color: var(--color-text-dark);
+        font-size: 13px;
+    }
 
 .botao-tipo4 {
     display: flex;
@@ -1222,7 +1215,6 @@ button {
     font-weight: bold;
     font-size: 14px;
     transition: background 0.3s;
-    
 }
 
     .botao-tipo4:hover {
@@ -1428,7 +1420,6 @@ button {
     font-size: 1.6rem;
     margin-bottom: 5px;
     font-weight: bold;
-    
 }
 
 .topo-catalogo p {
@@ -1482,9 +1473,9 @@ button {
     font-size: 0.95rem;
 }
 
-.botao-novo:hover {
-    background-color: var(--color-primary-hover);
-}
+    .botao-novo:hover {
+        background-color: var(--color-primary-hover);
+    }
 
 .tabela-cabecalho {
     display: none;
@@ -1560,7 +1551,7 @@ button {
 
 .acao-excluir {
     color: var(--color-danger-alt);
-    background-color: var(--color-surface);
+    background-color: transparent;
 }
 
 /* Tela de cadastro de pacotes */
@@ -1617,7 +1608,7 @@ button {
     margin-bottom: 25px;
 }
 
-.catalogo .home-package-info{
+.catalogo .home-package-info {
     margin-bottom: 0.5rem;
 }
 
@@ -1633,7 +1624,6 @@ button {
         border-bottom: none;
         border-right: 1.5px solid var(--color-border-strong);
         padding: 30px;
-        
     }
 
     .logo {
@@ -1742,6 +1732,7 @@ button {
         margin-top: 10px;
         text-decoration: underline;
         color: var(--color-text-dark);
+        background: transparent;
     }
 
     .acoes-historico {
@@ -1761,7 +1752,7 @@ button {
 
     .home-footer-logo {
         width: 155px;
-        height: 70px;
+        height: 100px;
         border: none;
         display: flex;
         align-items: center;
@@ -1830,8 +1821,8 @@ button {
     }
 
     .home-header-entrar .entrar-texto {
-    display: inline-flex;
-}
+        display: inline-flex;
+    }
 
     .home-hero-wrapper {
         flex-direction: row;
@@ -1854,7 +1845,7 @@ button {
     .home-packages-grid {
         grid-template-columns: repeat(4, 1fr);
     }
-    
+
     .home-footer-wrapper {
         grid-template-columns: repeat(5, 1fr);
     }
