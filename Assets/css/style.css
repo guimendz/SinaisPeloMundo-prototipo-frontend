@@ -5,9 +5,11 @@ html[data-theme="dark"] {
     --color-input: #2a2a2a;
     --color-image-placeholder: #333333;
     --color-footer: #ffffff;
+    --color-input-text: #928e8e;
     --color-menu-icon: #ffffff;
     --color-chat-messages: #ffffff;
     --color-border-black: #ffffff;
+    --color-success: #ffffff;
     --color-bg-btn-alterar: #1e1e1e;
     --color-text: #f0f0f0;
     --color-text-secondary: #b3b3b3;
@@ -23,8 +25,13 @@ html[data-theme="dark"] {
     --color-primary-light: #22345c;
     --color-primary-hover-light: #2c4372;
     --color-icon-background: #22345c;
+    --color-txt-btn-excluir: #ffffff;
+    --color-danger-darkmode: #ff0000;
+    --color-danger: #af0a0a;
+    --color-bg-btn-alterar: #2DC75C;
+    --color-success-hover: #1a7736;
     --color-surface-alt: #030E26;
-    --color-packages-grid: #030E26;
+    --color-packages-grid: #030E26;    
 
     .logo-light {
         display: none;
@@ -36,18 +43,21 @@ html[data-theme="dark"] {
 }
 
 :root {
+    --font-scale: 1;
+
     /* Cores em variáveis */
     --color-page: #ffffff;
     --color-surface: #ffffff;
     --color-packages-grid: #ffffff;
     --color-header-font: #ffffff;
     --color-chat-input: #ffffff;
+    --color-input: #ffffff;
     --color-bg-btn-alterar: #ffffff;
     --color-btn-historico: #ffffff;
+    --color-danger-darkmode: #ffffff;
     --color-surface-alt: #E8F1FD;
     --color-chat-send: #E8F1FD;
     --color-muted-surface: #f0f0f0;
-    --color-input: #ffffff;
     --color-image-placeholder: #dddddd;
     --color-text: #000000;
     --color-text-secondary: #666666;
@@ -72,12 +82,14 @@ html[data-theme="dark"] {
     --color-primary-accent: #5985DC;
     --color-icon-background: #eff5ff;
     --color-success: #2DC75C;
+    --color-success-hover: #2DC75C;
     --color-success-dark: #209543;
     --color-success-text: #0b8d34;
     --color-success-light: #e8f5e9;
     --color-success-icon: #4caf50;
     --color-success-alt: #4de068;
     --color-danger: #ff0000;
+    --color-txt-btn-excluir: #ff0000;
     --color-danger-dark: #af0a0a;
     --color-danger-text: #bd0a0a;
     --color-danger-alt: #cc0000;
@@ -100,6 +112,7 @@ html[data-theme="dark"] {
 html, body {
     background-color: var(--color-page);
     color: var(--color-text);
+    font-size: calc(16px * var(--font-scale));
 }
 
 * {
@@ -171,12 +184,12 @@ button {
 }
 
 .lado-esquerdo h2 {
-    font-size: 28px;
+    font-size: 1.75rem;
     margin-bottom: 20px;
 }
 
 .lado-esquerdo p {
-    font-size: 14px;
+    font-size: 0.875rem;
     margin-bottom: 30px;
 }
 
@@ -212,6 +225,7 @@ button {
     outline: none;
     transition: border-color 0.2s;
     color: var(--color-text-secondary);
+    background-color: var(--color-input);
 }
 
 .botao-tipo1 {
@@ -220,7 +234,7 @@ button {
     padding: 10px 30px;
     border-radius: 12px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
     transition: all 0.3s ease;
     margin-top: 10px;
     align-self: center;
@@ -245,7 +259,7 @@ button {
     padding-bottom: 10px;
     align-self: center;
     text-decoration: underline;
-    font-size: 15px;
+    font-size: 0.9375rem;
 }
 
     #esqueci-senha:hover {
@@ -291,7 +305,7 @@ button {
     align-items: flex-start;
     gap: 25px;
     margin-bottom: 40px;
-    font-size: 18px;
+    font-size: 1.125rem;
     min-width: 0;
 }
 
@@ -324,7 +338,7 @@ button {
 }
 
     .dados-pessoais h1 {
-        font-size: 28px;
+        font-size: 1.75rem;
         margin-bottom: 5px;
         color: var(--color-primary);
     }
@@ -356,7 +370,10 @@ button {
         padding: 12px;
         border: 1px solid var(--color-border-input);
         border-radius: 8px;
+        color: black;
         outline: none;
+        background-color: var(--color-input);
+        color: var(--color-input-text);
     }
 
 .botoes-dados {
@@ -370,7 +387,7 @@ button {
     padding: 10px 20px;
     border-radius: 12px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
     transition: all 0.3s ease;
     margin-top: 10px;
     align-self: center;
@@ -395,8 +412,9 @@ button {
 
 #botao-excluir {
     border-color: var(--color-danger);
-    color: var(--color-danger);
-    font-weight: bold;
+    background-color: var(--color-danger-darkmode) ;
+    color: var(--color-txt-btn-excluir);
+    font-weight: bold;  
 }
 
     #botao-excluir:hover {
@@ -407,7 +425,7 @@ button {
 /* Tela de alteração de dados pessoais */
 
 #botao-alterar {
-    border-color: var(--color-success);
+    border-color: var(--color-success-hover);
     color: var(--color-success);
     background-color: var(--color-bg-btn-alterar);
     font-weight: bold;
@@ -415,7 +433,7 @@ button {
 }
 
     #botao-alterar:hover {
-        background-color: var(--color-success);
+        background-color: var(--color-success-hover);
         color: var(--color-text-on-primary);
     }
 
@@ -506,7 +524,7 @@ button {
     padding: 15px 20px;
     border-radius: 12px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
     transition: all 0.5s ease;
     margin-top: 10px;
     align-self: center;
@@ -514,19 +532,21 @@ button {
 }
 
 .botao-gerar {
-    background-color: var(--color-btn-historico);
-    color: var(--color-success-text);
+    border-color: var(--color-success-hover);
+    color: var(--color-success);
+    background-color: var(--color-bg-btn-alterar);
 }
 
     .botao-gerar:hover {
-        background-color: var(--color-success);
+        background-color: var(--color-success-hover);
         color: var(--color-text-on-primary);
         border-color: var(--color-success-dark)
     }
 
 .botao-cancelar {
-    background-color: var(--color-btn-historico);
-    color: var(--color-danger-text);
+    color: var(--color-txt-btn-excluir);
+    background-color: var(--color-danger-darkmode);
+    border-color: var(--color-danger);
     text-align: center;
 }
 
@@ -543,7 +563,7 @@ button {
     border: 2px solid var(--color-disabled-border);
     padding: 15px 20px;
     border-radius: 12px;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: bold;
     width: 300px;
     cursor: not-allowed;
@@ -572,7 +592,7 @@ button {
         color: var(--color-text-on-primary);
         padding: 6px 12px;
         border-radius: 8px;
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: bold;
         letter-spacing: 1px;
     }
@@ -839,6 +859,7 @@ button {
     border-radius: 12px;
     overflow: hidden;
     transition: 0.3s ease;
+    cursor: pointer;;
 }
 
     .home-package-card:hover {
@@ -972,7 +993,7 @@ button {
 .chat-botao img {
     width: 80px;
     height: 80px;
-    font-size: 24px;
+    font-size: 1.5rem;
     cursor: pointer;
     border-radius: 50%;
 }
@@ -1011,7 +1032,7 @@ button {
     overflow-y: auto;
     padding: 15px;
     font-family: sans-serif;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--color-chat-messages);
 }
 
@@ -1067,7 +1088,7 @@ button {
         background-color: var(--color-chat-input);
         border-radius: 999px;
         outline: none;
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
 .send-button {
@@ -1087,7 +1108,7 @@ button {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 20px;
+        font-size: 1.25rem;
         line-height: 1;
         cursor: pointer;
     }
@@ -1164,7 +1185,7 @@ button {
     height: 110px;
     background-color: var(--color-success-light);
     color: var(--color-success-icon);
-    font-size: 30px;
+    font-size: 1.875rem;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -1190,12 +1211,12 @@ button {
 .text-group {
     display: flex;
     flex-direction: column;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
     .text-group strong {
         color: var(--color-text-dark);
-        font-size: 13px;
+        font-size: 0.8125rem;
     }
 
 .botao-tipo4 {
@@ -1213,7 +1234,7 @@ button {
     border: 2px solid var(--color-primary);
     border-radius: 10px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 0.875rem;
     transition: background 0.3s;
 }
 
@@ -1315,7 +1336,7 @@ button {
     }
 
 .valor-foco {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
     display: block;
     margin-top: 5px;
@@ -1333,11 +1354,11 @@ button {
     align-items: center;
     gap: 8px;
     margin: 10px 0;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .itens-inclusos span {
-    font-size: 18px;
+    font-size: 1.125rem;
     color: var(--color-text-muted);
 }
 
@@ -1447,6 +1468,7 @@ button {
         border-radius: 6px;
         font-size: 0.9rem;
         outline: none;
+        background-color: var(--color-input);
     }
 
 .icone-busca {
@@ -1558,7 +1580,7 @@ button {
 
 .cadastro-catalogo h1 {
     color: var(--color-primary);
-    font-size: 28px;
+    font-size: 1.75rem;
     margin-bottom: 5px;
 }
 
@@ -1580,12 +1602,13 @@ button {
 }
 
 .btn-catalogo-salvar {
-    background-color: var(--color-surface);
-    color: var(--color-success-alt);
+    border-color: var(--color-success-hover);
+    color: var(--color-success);
+    background-color: var(--color-bg-btn-alterar);
 }
 
     .btn-catalogo-salvar:hover {
-        background-color: var(--color-success-alt);
+        background-color: var(--color-success-hover);
         color: var(--color-text-on-primary);
     }
 
@@ -1649,7 +1672,7 @@ button {
     }
 
     .sidebar-dados {
-        font-size: 17px;
+        font-size: 1.0625rem;
     }
 
     .container-dados {
@@ -1998,6 +2021,12 @@ button {
         display: flex;
         flex-direction: column;
         gap: 15px;
+    }
+
+    .sidebar-filtro input {
+        background-color: var(--color-input);
+        color: var(--color-input-text);
+        cursor: pointer;
     }
 
     #input-destino {
