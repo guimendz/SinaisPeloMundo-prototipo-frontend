@@ -8,6 +8,9 @@ export default function Footer() {
     ? require('../../assets/img/Logo-darkmode.png')
     : require('../../assets/img/Logo.jpg');
 
+  const origem = Image.resolveAssetSource(logo);
+  const logoAltura = 250 * (origem.height / origem.width);
+
   const texto = { color: colors.footer, fontSize: fs(16), lineHeight: fs(16) * 1.6 };
   const titulo = { color: colors.primary, fontWeight: 'bold' as const, fontSize: fs(16), marginBottom: 16 };
 
@@ -15,7 +18,7 @@ export default function Footer() {
     <View style={{ backgroundColor: colors.surfaceAlt, borderTopWidth: 1, borderTopColor: colors.border }}>
       <View style={s.conteudo}>
         <View>
-          <Image source={logo} style={s.logo} resizeMode="cover" />
+          <Image source={logo} style={{ width: 250, height: logoAltura, borderRadius: 4 }} resizeMode="cover" />
           <Text style={[texto, { marginTop: 16 }]}>
             Turismo acessível e inclusivo para você viver o melhor do mundo com tranquilidade.
           </Text>
@@ -57,5 +60,4 @@ export default function Footer() {
 
 const s = StyleSheet.create({
   conteudo: { width: '90%', alignSelf: 'center', paddingTop: 48, paddingBottom: 48, gap: 32 },
-  logo: { width: 250, aspectRatio: 1.5, borderRadius: 4 },
 });

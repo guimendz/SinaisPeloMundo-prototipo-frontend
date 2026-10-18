@@ -1,12 +1,12 @@
-import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Chat from '../components/Chat';
-import PacoteCard from '../components/PacoteCard';
-import { pacotes } from '../data/pacotes';
-import { useAppTheme } from '../theme/ThemeContext';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Chat from '@/components/Chat';
+import PacoteCard from '@/components/PacoteCard';
+import { pacotes } from '@/data/pacotes';
+import { useAppTheme } from '@/theme/ThemeContext';
 
 const beneficios = [
   { icone: 'person', titulo: 'Intérpretes Qualificados', desc: 'Profissionais experientes e certificados.' },
@@ -18,10 +18,16 @@ const beneficios = [
 export default function Home() {
   const { colors, isDark, fs } = useAppTheme();
   const router = useRouter();
+  const { width } = useWindowDimensions();
 
   const banner = isDark
-    ? require('../../assets/img/Logo-darkmode.png')
-    : require('../../assets/img/Logo.jpg');
+    ? require('@/assets/img/Logo-darkmode.png')
+    : require('@/assets/img/Logo.jpg');
+
+  // Tamanho em pixels: 90% da tela, mantendo a proporção original da imagem
+  const origem = Image.resolveAssetSource(banner);
+  const bannerLargura = width * 0.9;
+  const bannerAltura = bannerLargura * (origem.height / origem.width);
 
   return (
     <View style={{ flex: 1, backgroundColor: colors.page }}>
@@ -45,8 +51,8 @@ export default function Home() {
                 tranquilidade e conforto.
               </Text>
             </View>
-            <View style={{ borderRadius: 12, backgroundColor: colors.imagePlaceholder }}>
-              <Image source={banner} style={s.banner} resizeMode="cover" />
+            <View style={{ borderRadius: 15, overflow: 'hidden', backgroundColor: colors.imagePlaceholder }}>
+              <Image source={banner} style={{ width: bannerLargura, height: bannerAltura }} resizeMode="cover" />
             </View>
           </View>
         </View>
@@ -102,7 +108,6 @@ export default function Home() {
 
 const s = StyleSheet.create({
   container: { width: '90%', alignSelf: 'center' },
-  banner: { width: '100%', aspectRatio: 1.5, borderRadius: 15 },
   beneficio: { flexDirection: 'row', alignItems: 'flex-start', gap: 16 },
   iconeCirculo: { width: 50, height: 50, borderRadius: 25, alignItems: 'center', justifyContent: 'center' },
   pacotesHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 32 },

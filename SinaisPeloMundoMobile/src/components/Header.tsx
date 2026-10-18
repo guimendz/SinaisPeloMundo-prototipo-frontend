@@ -5,7 +5,7 @@ import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useAppTheme } from '../theme/ThemeContext';
 
-export default function Header() {
+export default function Header({ mostrarConta = true }: { mostrarConta?: boolean }) {
   const { colors, isDark, toggleTheme, increaseFont, decreaseFont, fs } = useAppTheme();
   const insets = useSafeAreaInsets();
   const router = useRouter();
@@ -43,7 +43,7 @@ export default function Header() {
         </Pressable>
 
         {/* Logo centralizado */}
-        <View style={s.logoWrap} pointerEvents="none">
+        <View style={s.logoWrap}>
           <Image source={logo} style={s.logo} resizeMode="contain" />
         </View>
 
@@ -58,13 +58,15 @@ export default function Header() {
           <Pressable onPress={toggleTheme} hitSlop={8}>
             <MaterialIcons
               name={isDark ? 'light-mode' : 'dark-mode'}
-              size={26}
+              size={24}
               color={colors.themeModeIcon}
             />
           </Pressable>
-          <Pressable onPress={() => ir('/login')} hitSlop={8}>
-            <MaterialIcons name="account-circle" size={26} color={colors.primary} />
-          </Pressable>
+          {mostrarConta && (
+            <Pressable onPress={() => ir('/login')} hitSlop={8}>
+              <MaterialIcons name="account-circle" size={24} color={colors.primary} />
+            </Pressable>
+          )}
         </View>
       </View>
 
@@ -92,9 +94,9 @@ const s = StyleSheet.create({
   },
   hamburguer: { width: 40, height: 40, justifyContent: 'center', gap: 5 },
   linha: { width: '100%', height: 3, borderRadius: 999 },
-  logoWrap: { position: 'absolute', left: 0, right: 0, alignItems: 'center' },
-  logo: { width: 120, height: 55 },
-  acoes: { flexDirection: 'row', alignItems: 'center', gap: 10 },
-  textoAcao: { fontSize: 20, fontWeight: 'bold' },
+  logoWrap: { flex: 1, alignItems: 'center', paddingHorizontal: 8 },
+  logo: { width: 110, height: 50 },
+  acoes: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  textoAcao: { fontSize: 18, fontWeight: 'bold' },
   nav: { borderTopWidth: 1, paddingVertical: 24, paddingHorizontal: '5%', gap: 16 },
 });
