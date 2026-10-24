@@ -6,6 +6,7 @@ import { useRouter } from 'expo-router';
 import Header from '../components/Header';
 import Botao from '../components/Botao';
 import { useAppTheme } from '../theme/ThemeContext';
+import { proporcaoImagem } from '../utils/imagem';
 
 const logo = require('../../assets/img/Logo-tipo.jpg');
 
@@ -16,8 +17,7 @@ export default function Login() {
   const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
 
-  const origem = Image.resolveAssetSource(logo);
-  const logoAltura = 80 * (origem.height / origem.width);
+  const logoAltura = 80 * proporcaoImagem(logo);
 
   const entrar = () => {
     if (!email.trim() || !senha) return setErro('Preencha email e senha.');

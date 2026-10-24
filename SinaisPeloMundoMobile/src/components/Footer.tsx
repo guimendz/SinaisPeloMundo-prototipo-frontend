@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { useAppTheme } from '../theme/ThemeContext';
+import { proporcaoImagem } from '../utils/imagem';
 
 export default function Footer() {
   const { colors, isDark, fs } = useAppTheme();
@@ -8,8 +9,7 @@ export default function Footer() {
     ? require('../../assets/img/Logo-darkmode.png')
     : require('../../assets/img/Logo.jpg');
 
-  const origem = Image.resolveAssetSource(logo);
-  const logoAltura = 250 * (origem.height / origem.width);
+  const logoAltura = 250 * proporcaoImagem(logo);
 
   const texto = { color: colors.footer, fontSize: fs(16), lineHeight: fs(16) * 1.6 };
   const titulo = { color: colors.primary, fontWeight: 'bold' as const, fontSize: fs(16), marginBottom: 16 };

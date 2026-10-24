@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import Botao from '../components/Botao';
 import CampoTexto from '../components/CampoTexto';
 import { useAppTheme } from '../theme/ThemeContext';
+import { proporcaoImagem } from '../utils/imagem';
 import {
   cpfValido, dataValida, emailValido, mascaraCpf, mascaraData, mascaraTelefone,
 } from '../utils/mascaras';
@@ -26,8 +27,7 @@ export default function Cadastro() {
   const [endereco, setEndereco] = useState('');
   const [erro, setErro] = useState('');
 
-  const origem = Image.resolveAssetSource(logo);
-  const logoAltura = 80 * (origem.height / origem.width);
+  const logoAltura = 80 * proporcaoImagem(logo);
 
   const irParaLogin = () => (router.canGoBack() ? router.back() : router.replace('/login'));
 

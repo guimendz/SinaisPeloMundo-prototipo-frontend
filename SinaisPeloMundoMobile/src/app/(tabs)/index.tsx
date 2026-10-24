@@ -7,6 +7,7 @@ import Chat from '@/components/Chat';
 import PacoteCard from '@/components/PacoteCard';
 import { pacotes } from '@/data/pacotes';
 import { useAppTheme } from '@/theme/ThemeContext';
+import { proporcaoImagem } from '@/utils/imagem';
 
 const beneficios = [
   { icone: 'person', titulo: 'Intérpretes Qualificados', desc: 'Profissionais experientes e certificados.' },
@@ -25,9 +26,8 @@ export default function Home() {
     : require('@/assets/img/Logo.jpg');
 
   // Tamanho em pixels: 90% da tela, mantendo a proporção original da imagem
-  const origem = Image.resolveAssetSource(banner);
   const bannerLargura = width * 0.9;
-  const bannerAltura = bannerLargura * (origem.height / origem.width);
+  const bannerAltura = bannerLargura * proporcaoImagem(banner);
 
   return (
     <View style={{ flex: 1, backgroundColor: colors.page }}>

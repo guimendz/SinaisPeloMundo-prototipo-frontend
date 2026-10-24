@@ -4,44 +4,41 @@ import { useAppTheme } from '../theme/ThemeContext';
 type Props = {
   titulo: string;
   onPress: () => void;
-  variante?: 'azul' | 'contorno'; // .btn-azul e .botao-tipo1 do CSS
+  // azul = .btn-azul | contorno = .botao-tipo1 | largo = .botao-tipo4 (comprar, confirmar...)
+  variante?: 'azul' | 'contorno' | 'largo';
   style?: StyleProp<ViewStyle>;
 };
 
 export default function Botao({ titulo, onPress, variante = 'azul', style }: Props) {
   const { colors, fs } = useAppTheme();
+  const azul = variante !== 'contorno';
+  const largo = variante === 'largo';
 
   return (
     <Pressable
       onPress={onPress}
-      style={({ pressed }) => {
+      style={({ pressed }) => [
+        s.base,
+        largo && s.largo,
         // "pressed" faz o papel do :hover do site
-        if (variante === 'azul') {
-          return [
-            s.base,
-            {
+        azul
+          ? {
               backgroundColor: pressed ? colors.primary : colors.primaryAction,
               borderColor: pressed ? colors.primaryAccent : colors.primary,
+            }
+          : {
+              backgroundColor: pressed ? colors.textDark : 'transparent',
+              borderColor: colors.borderBlack,
             },
-            style,
-          ];
-        }
-        return [
-          s.base,
-          {
-            backgroundColor: pressed ? colors.textDark : 'transparent',
-            borderColor: colors.borderBlack,
-          },
-          style,
-        ];
-      }}
+        style,
+      ]}
     >
       {({ pressed }) => (
         <Text
           style={{
-            fontSize: fs(16),
-            color:
-              variante === 'azul' || pressed ? colors.textOnPrimary : colors.text,
+            fontSize: fs(largo ? 14 : 16),
+            fontWeight: largo ? 'bold' : 'normal',
+            color: azul || pressed ? colors.textOnPrimary : colors.text,
           }}
         >
           {titulo}
@@ -60,5 +57,12 @@ const s = StyleSheet.create({
     marginTop: 10,
     alignSelf: 'center',
     alignItems: 'center',
+  },
+  largo: {
+    width: '100%',
+    maxWidth: 400,
+    padding: 15,
+    borderRadius: 10,
+    marginTop: 20,
   },
 });
