@@ -1,56 +1,13 @@
-import { ComponentProps, ReactNode } from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MenuLateral from '../components/MenuLateral';
 import Botao from '../components/Botao';
+import ServicosPacote, { Paragrafo } from '../components/ServicosPacote';
+import ListaInclusos from '../components/ListaInclusos';
 import { useAppTheme } from '../theme/ThemeContext';
 import { detalhesExemplo as pacote } from '../data/detalhes';
-
-type Icone = ComponentProps<typeof MaterialIcons>['name'];
-
-function Paragrafo({ children }: { children: ReactNode }) {
-  const { colors, fs } = useAppTheme();
-  return <Text style={{ color: colors.text, fontSize: fs(16), marginBottom: 25 }}>{children}</Text>;
-}
-
-function LinhaIcone({ icone, children, ultima }: { icone: Icone; children: ReactNode; ultima?: boolean }) {
-  const { colors, fs } = useAppTheme();
-  return (
-    <View style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 6, marginBottom: ultima ? 0 : 25 }}>
-      <MaterialIcons name={icone} size={20} color={colors.text} />
-      <Text
-        style={{
-          flex: 1,
-          color: colors.text,
-          fontSize: fs(16),
-          fontStyle: ultima ? 'italic' : 'normal',
-        }}
-      >
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function ServicoItem({ icone, titulo, children }: { icone: Icone; titulo: string; children: ReactNode }) {
-  const { colors, fs } = useAppTheme();
-  return (
-    <View style={[s.servicoItem, { borderBottomColor: colors.borderSoft }]}>
-      <View style={[s.iconBox, { backgroundColor: colors.white }]}>
-        <MaterialIcons name={icone} size={24} color={colors.black} />
-      </View>
-      <View style={{ flex: 1 }}>
-        <Text style={{ color: colors.text, fontWeight: 'bold', fontSize: fs(18.72), marginTop: 5, marginBottom: 25 }}>
-          {titulo}
-        </Text>
-        {children}
-      </View>
-    </View>
-  );
-}
 
 export default function DetalhesPacote() {
   const { colors, fs } = useAppTheme();
@@ -80,12 +37,7 @@ export default function DetalhesPacote() {
             Confira o que está incluído no seu pacote de viagem
           </Text>
 
-          <View
-            style={[
-              s.checkout,
-              { borderColor: colors.borderSoft, backgroundColor: colors.surfaceAlt },
-            ]}
-          >
+          <View style={[s.checkout, { borderColor: colors.borderSoft, backgroundColor: colors.surfaceAlt }]}>
             {/* Imagem */}
             <View style={[s.cardImagem, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
               <View style={{ height: 180, backgroundColor: colors.mutedSurface }}>
@@ -95,7 +47,7 @@ export default function DetalhesPacote() {
               </View>
             </View>
 
-            {/* Serviços */}
+            {/* Título e serviços */}
             <View>
               <View style={{ padding: 10 }}>
                 <Text style={{ color: colors.text, fontWeight: 'bold', fontSize: fs(24), marginTop: 10, marginBottom: 15 }}>
@@ -103,24 +55,7 @@ export default function DetalhesPacote() {
                 </Text>
                 <Paragrafo>{pacote.descricao}</Paragrafo>
               </View>
-
-              <ServicoItem icone="hotel" titulo="Hotel">
-                <Paragrafo>{pacote.hotel.nome}</Paragrafo>
-                <LinhaIcone icone="location-on" ultima>{pacote.hotel.endereco}</LinhaIcone>
-              </ServicoItem>
-
-              <ServicoItem icone="flight" titulo="Passagem aérea">
-                <Paragrafo>{pacote.passagem.rota}</Paragrafo>
-                <LinhaIcone icone="date-range">
-                  Ida: {pacote.passagem.ida} · Volta: {pacote.passagem.volta}
-                </LinhaIcone>
-                <Paragrafo>{pacote.passagem.classe}</Paragrafo>
-              </ServicoItem>
-
-              <ServicoItem icone="person" titulo="Intérprete">
-                <Paragrafo>{pacote.interprete.nome}</Paragrafo>
-                <LinhaIcone icone="call" ultima={false}>{pacote.interprete.telefone}</LinhaIcone>
-              </ServicoItem>
+              <ServicosPacote pacote={pacote} />
             </View>
 
             {/* Resumo */}
@@ -143,15 +78,7 @@ export default function DetalhesPacote() {
                 {pacote.preco}
               </Text>
 
-              <Text style={{ color: colors.text, fontWeight: 'bold', fontSize: fs(16), marginBottom: 6 }}>
-                O que está incluído
-              </Text>
-              {pacote.inclusos.map((item) => (
-                <View key={item} style={s.incluso}>
-                  <MaterialIcons name="check-circle-outline" size={fs(18)} color={colors.textMuted} />
-                  <Text style={{ color: colors.text, fontSize: fs(14) }}>{item}</Text>
-                </View>
-              ))}
+              <ListaInclusos itens={pacote.inclusos} />
 
               <Botao
                 titulo="COMPRAR PACOTE"
@@ -171,7 +98,4 @@ export default function DetalhesPacote() {
 const s = StyleSheet.create({
   checkout: { padding: 10, borderWidth: 1, borderRadius: 10, gap: 20 },
   cardImagem: { borderWidth: 1, borderRadius: 12, overflow: 'hidden' },
-  servicoItem: { flexDirection: 'row', gap: 15, paddingVertical: 20, borderBottomWidth: 1 },
-  iconBox: { padding: 10, borderRadius: 10, alignSelf: 'flex-start' },
-  incluso: { flexDirection: 'row', alignItems: 'center', gap: 8, marginVertical: 10 },
 });

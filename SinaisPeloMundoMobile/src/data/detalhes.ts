@@ -21,3 +21,5 @@ export const detalhesExemplo = {
     'Seguro viagem',
   ],
 };
+
+export type DetalhesPacote = typeof detalhesExemplo;
